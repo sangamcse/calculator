@@ -21,10 +21,12 @@ class ViewController: UIViewController {
     {
         if performingMath == true
         {
-            if sender.tag == 17 {
+            if sender.tag == 17
+            {
                 label.text = "0."
             }
-            else {
+            else
+            {
                 label.text = String(sender.tag-1)
             }
             numberOnScreen = Double(label.text!)!
@@ -32,7 +34,8 @@ class ViewController: UIViewController {
         }
         else
         {
-            if sender.tag == 17 {
+            if sender.tag == 17
+            {
                 label.text = label.text! + "."
             }
             else {
@@ -72,7 +75,17 @@ class ViewController: UIViewController {
         {
             if operation == 12
             {
-                label.text = String(previousNumber / numberOnScreen)
+                if numberOnScreen == 0
+                {
+                    numberOnScreen = 0;
+                    previousNumber = 0;
+                    operation = 0;
+                    label.text = ""
+                }
+                else
+                {
+                    label.text = String(previousNumber / numberOnScreen)
+                }
             }
             else if operation == 13
             {
